@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 Welcome to index
+    form(method="post", action="/todo/edit/"+todo._id)
+        label Todo Name
+        input(name="text" type="text" placeholder="Add Todo" value=todo.text )
+        label Todo Body
+        textarea(name="body" placeholder="Add body"  ) #{todo.body}
+        button.btn.btn-default(type="submit") Submit
+        a(href='/') Cancel 

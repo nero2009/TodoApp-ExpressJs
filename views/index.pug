@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 Welcome to index
+    form(method="post", action="/todo/add")
+        label Todo Name
+        input(name="text" type="text" placeholder="Add Todo"  )
+        label Todo Body
+        textarea(name="body" placeholder="Add body" )
+        button.btn.btn-default(type="submit") Submit
+    ul
+        each todo in todos
+            li= todo.text + ' - ' + todo.body
+                a.delete-todo(href='#',data-id=todo._id) Delete 
+                a(href='/todo/edit/'+todo._id) Edit 
